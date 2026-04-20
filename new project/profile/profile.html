@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="css/profile.css">
+<script src="../js/bundle.js"></script>
+<script src="../js/sweetalert.js"></script>
+    <title>Profile</title>
+    <style>
+        @media print{
+            .no-print{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar no-print navbar-expand-md bg-light shadow-lg fixed-top navbar-light">    
+    <div class="container-fluid">
+        <img src="../images/logo.png" class="rounded-circle" width="60" alt="">
+        <a href="#" class="mx-4 text-white navbar-brand">
+            BHL Booking Management System
+        </a> 
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mymenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="mymenu">
+        <ul class="navbar-nav mx-auto w-100 justify-content-end">
+            <div class="input-group w-75">
+                <input type="search" class="search-input form-control" placeholder="Search By name,Cottage Name,Mobile...">
+                <span class="input-group-text action-btn text-dark btn">Search</span>
+            </div>
+            <button class="btn action-btn logout-btn mx-5 text-dark fw-bold px-4">Logout</button>
+            </ul>
+            </div>
+            </div>
+        </nav>
+        <br><br>
+            <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav no-print nav-tabs">
+                    <li class="nav-item">
+                        <a href="#booking" class="nav-link active tab-btn" data-bs-toggle="tab">
+                            Booking
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#inhouse" class="nav-link tab-btn" data-bs-toggle="tab">
+                            In House
+                        </a>
+                    </li>
+                      <li class="nav-item">
+                        <a href="#archive" class="nav-link tab-btn" data-bs-toggle="tab">
+                            Archive
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cashier" class="nav-link cashier-tab" data-bs-toggle="tab">
+                            Cashier
+                        </a>
+                    </li>
+                 </ul>
+                 <div class="tab-content">
+                    <div class="tab-pane active search-pane container-fluid mt-3" id="booking">
+                        <div class="row my-5 no-print">
+                            <div class="col-md-4 text-center">
+                            <button 
+                            data-bs-toggle="modal"
+                            data-bs-target="#registration-modal"
+                            class="btn action-btn b-register-btn px-4 text-white fw-bold">Register</button>
+                            </div>
+                            <div class="col-md-4 text-center">
+                            <button class="btn action-btn print-btn px-4 text-white fw-bold">Print</button>
+                            </div>
+                            <div class="col-md-4 text-center">
+                            <button class="btn action-btn text-white total-btn fw-bold">Total booking</button>
+                            </div></div> 
+                            <div class ="table-responsive">
+                           <h2>All Booking Data</h2>
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th class="no-print">SN</th>
+                                        <th class="text-nowrap">Location</th>
+                                        <th class="text-nowrap">cottageName</th>
+                                        <th class="text-nowrap">Fullname</th>
+                                        <th class="text-nowrap">Gender</th>
+                                        <th class="text-nowrap">Checkin</th>
+                                        <th class="text-nowrap">Checkout</th>
+                                        <th class="text-nowrap">Total People</th>
+                                        <th class="text-nowrap">Mobile</th>
+                                        <th class="text-nowrap">Price</th>
+                                        <th class="text-nowrap">Notice</th>
+                                        <th class="no-print">Created At</th>
+                                        <th class="no-print">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="booking-list">
+                                </tbody>
+                            </table>  
+                            </div> 
+                            <div class="row py-5 show-booking-cottages">
+                            </div>
+                        </div>
+                     <div class="tab-pane search-pane container-fluid mt-3" id="inhouse">
+                        <div class="row my-5 no-print">
+                            <div class="col-md-4 text-center">
+                            <button 
+                            data-bs-toggle="modal"
+                            data-bs-target="#inhouse-modal"
+                            class="btn action-btn in-house-reg-btn px-4 text-white fw-bold">Register</button>
+                            </div>
+                            <div class="col-md-4 text-center">
+                            <button class="btn action-btn print-btn px-4 text-white fw-bold">Print</button>
+                            </div>
+                            <div class="col-md-4 text-center">
+                            <button class="btn action-btn text-white total-btn fw-bold">Total Inhouse</button>
+                            </div></div>
+                            <div class="table-responsive">
+                            <h2>All In House Data</h2>
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th class="no-print">SN</th>
+                                        <th class="text-nowrap">Location</th>
+                                        <th class="text-nowrap">cottageName</th>
+                                        <th class="text-nowrap">Fullname</th>
+                                        <th class="text-nowrap">Gender</th>
+                                        <th class="text-nowrap">Checkin</th>
+                                        <th class="text-nowrap">Checkout</th>
+                                        <th class="text-nowrap">Total People</th>
+                                        <th class="text-nowrap">Mobile</th>
+                                        <th class="text-nowrap">Price</th>
+                                        <th class="text-nowrap">Notice</th>
+                                        <th class="no-print">Created At</th>
+                                        <th class="no-print">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="inhouse-list">
+                                    
+                                </tbody>
+                            </table> 
+                            </div> 
+                            <div class="row py-5 show-inhouse-cottages">
+                            <div class="card text-center px-0 col-md-2">
+                                    <div class="bg-danger text-white fw-bold card-header">
+                                        biggee blue
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="../images/dummy1.png" class="w-100" alt=""> 
+                                    </div>
+                                    <div class="card-footer">
+                                 <button class="action-btn btn text-white">
+                                    In
+                                 </button>
+                                 <button class="action-btn btn text-white">
+                                    Out
+                                 </button>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                     <div class="tab-pane search-pane container-fluid mt-3" id="archive">
+                        <div class="row my-5 no-print">
+                            <div class="col-md-6">
+                            <button class="btn action-btn print-btn px-4 text-white fw-bold">Print</button>
+                            <button class="btn action-btn text-white total-btn fw-bold">Total Archive</button>
+                            </div></div>
+                            <h2>All Archive Data</h2>
+                            <div class="table-responsive">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th class="no-print">SN</th>
+                                        <th class="text-nowrap">Location</th>
+                                        <th class="text-nowrap">cottageName</th>
+                                        <th class="text-nowrap">Fullname</th>
+                                        <th class="text-nowrap">Gender</th>
+                                        <th class="text-nowrap">Checkin</th>
+                                        <th class="text-nowrap">Checkout</th>
+                                        <th class="text-nowrap">Total People</th>
+                                        <th class="text-nowrap">Mobile</th>
+                                        <th class="text-nowrap">Price</th>
+                                        <th class="text-nowrap">Notice</th>
+                                        <th class="no-print">Created At</th>
+                                        <th class="no-print">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="archive-list">
+                                    
+                                </tbody>
+                            </table> 
+                            </div>
+                        </div>  
+                    <div class="tab-pane cashier-tab-pan search-pane container-fluid mt-3" id="cashier">  
+                         <h2>All Cashier Data</h2>
+                            <div class="table responsive">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>cottageName</th>
+                                        <th>Cashier</th>
+                                        <th>Date/Time</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="cashier-list">
+                                    
+                                     </tbody>
+                            </table>
+                            </div>
+                            <div class="d-flex mt-5 align-items-center justify-content-between">
+                                <h1>Total</h1>
+                                <h1 class="total" style="margin-right: 80px;">6000</h1>
+                            </div>  
+                        <div class="row no-print g-2 mt-4">
+                            <div class="col-md-3">
+                            <button
+                            data-bs-toggle="modal"
+                            data-bs-target="#cashier-modal"
+                    class="btn cash-btn action-btn px-3 text-white fw-bold">Add Cash</button>
+                            </div>
+                            <div class="col-md-3">
+                            <button class="btn close-cashier-btn action-btn text-white fw-bold">Close Cashier</button>
+                            </div>
+                            <div class="col-md-3">
+                            <button
+                            data-bs-toggle="modal"
+                            data-bs-target="#cashier-arch-modal"
+                            onclick="showCashArchFunc()"
+                            class="btn action-btn text-white fw-bold">Archive Cashier</button>
+                            </div>
+                            <div class="col-md-3 text-center">
+                            <button class="btn action-btn print-btn text-white fw-bold ">Print</button>
+                            </div>
+                    </div>
+                 </div>
+                </div>
+                </div>
+
+    <div class="modal animate__animated animate__zoomIn" id="registration-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+        <div class="modal-header">
+            <h5>Registration Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="body-body p-4">
+            <form class="booking-form">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+<input name="fullname" type="text" placeholder="Fullname" class="mb-3 form-control">
+                    </div>
+                    <div class="col-md-6">
+<input name="gender" type="text" placeholder="Gender" class="mb-3 form-control">
+                    </div>
+                    </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                <input name="location" type="text" placeholder="location" class="mb-3 form-control">
+                </div>
+                <div class="col-md-6">
+<input name="cottageName" type="text" placeholder="Cottage Name" class="mb-3 form-control">
+                </div>
+                </div>
+                <div class="row mb-3">
+                <div class="col-md-12">
+<input name="totalPeople" type="text" placeholder="Total People" class="mb-3 form-control">
+                </div>
+                </div>
+                <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Checkin date</label>
+<input name="checkInDate" type="date" class="mb-3 form-control">
+                </div>
+                <div class="col-md-6">
+                    <label>Checkout date</label>
+<input name="checkOutDate" type="date" class="mb-3 form-control">
+                </div>
+                </div>
+                 <div class="row mb-3">
+                    <div class="col-md-6">
+<input name="price" type="number" placeholder="price" class="mb-3 form-control">
+                    </div>
+                    <div class="col-md-6">
+<input name="mobile" type="number" placeholder="Mobile" class="mb-3 form-control">
+                    </div>
+                    </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                    <textarea name="notice" class="form-control"placeholder="Notice"></textarea>
+                </div>
+            </div>
+                 <div class="row mb-3">
+                    <div class="col-md-12">
+                    <button type="submit" class="btn action-btn text-white fw-bold w-100">Register</button>
+                    <button type="button" class="btn d-none btn-danger action-btn text-white fw-bold">Update</button>
+                 </div>
+                </div>
+            </form>
+</div>
+</div>
+ </div>
+</div>
+<div class="modal animate__animated animate__zoomIn" id="inhouse-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+        <div class="modal-header">
+            <h5>In House Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="body-body p-4">
+            <form class="inhouse-form">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+<input name="fullname" type="text" placeholder="Fullname" class="mb-3 form-control">
+                    </div>
+                    <div class="col-md-6">
+<input name="gender" type="text" placeholder="Gender" class="mb-3 form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                <input name="location" type="text" placeholder="location" class="mb-3 form-control">
+                </div>
+                <div class="col-md-6">
+<input name="cottageName" type="text" placeholder="Cottage Name" class="mb-3 form-control">
+                </div>
+                </div>
+                <div class="row mb-3">
+                <div class="col-md-12">
+<input name="totalPeople" type="text" placeholder="Total People" class="mb-3 form-control">
+                </div>
+                </div>
+                <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Checkin date</label>
+<input name="checkInDate" type="date" class="mb-3 form-control">
+                </div>
+                <div class="col-md-6">
+                    <label>Checkout date</label>
+<input name="checkOutDate" type="date" class="mb-3 form-control">
+                </div>
+                </div>
+                 <div class="row mb-3">
+                    <div class="col-md-6">
+<input name="price" type="number" placeholder="price" class="mb-3 form-control">
+                    </div>
+                    <div class="col-md-6">
+<input name="mobile" type="number" placeholder="Mobile" class="mb-3 form-control">
+                    </div>
+                    </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                    <textarea name="notice" class="form-control"placeholder="Notice"></textarea>
+                </div>
+                </div>
+                 <div class="row mb-3">
+                    <button type="submit" class="btn action-btn text-white fw-bold">Register</button>
+                    <button type="button" class="btn d-none btn-danger action-btn text-white fw-bold">Update</button>
+                </div>
+            </div>
+            </form>
+          </div>
+          </div>
+        </div>
+        <div class="modal animate__animated animate__zoomIn" id="cashier-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+        <div class="modal-header">
+            <h5>Cashier Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+            <form class="cashier-form" autocomplete="off">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+<input name="amount" type="number" placeholder="Amount" class="mb-3 form-control">
+                    </div>
+                    <div class="col-md-6">
+<input name="cottageName" type="text" placeholder="cottageName" class="mb-3 form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                <input name="cashierName" type="text" placeholder="cashier Name" class="form-control" autocomplete="off">
+                </div>
+             </div> 
+                    <button type="submit" class="btn action-btn text-white fw-bold w-100">Register</button>
+
+                </div>
+            </div>
+            </form>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal animate__animated animate__zoomIn" id="cashier-arch-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+        <div class="modal-header">
+            <h5>Archive cash</h5>
+            <button class="btn action-btn no-print arch-print-btn mx-5 mb-1 text-white">Print</button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+            <div class="table-responsive">
+                            
+                            <div class="table responsive">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Cashier</th>
+                                        <th>Date/Time</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="cashier-arch-list">
+                                    
+                                     </tbody>
+                            </table>
+                            <div class="d-flex mt-5 align-items-center justify-content-between">
+                                <h1>Total</h1>
+                                <h1 class="arch-total" style="margin-right: 80px;"></h1>
+                            </div>  
+                            </div>
+            
+            </div>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>
